@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="auto">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAMHUB – Premium Tech Solutions</title>
+    <!-- Favicon & Meta -->
+    <link rel="icon" href="static/img/favicon.ico" />
+    <meta name="description"
+        content="SAMHUB offers top-tier 3D printing, web/mobile development, and scalable backends—crafted for enterprises that demand excellence." />
+    <meta property="og:title" content="SAMHUB – Premium Tech Solutions" />
+    <meta property="og:description"
+        content="Cutting-edge 3D printing, enterprise-grade web & mobile apps, robust backends." />
+    <meta property="og:image" content="/og-image.png" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFC107',
+                        accent: '#FFD54F',
+                        'bg-light': '#F9FAFB',
+                        'text-dark': '#1F2937',
+                        'bg-dark': '#1A1A1A',
+                        'text-light': '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        (function () {
+            const root = document.documentElement;
+            let stored = localStorage.getItem('theme');
+            if (!stored) {
+                stored = 'dark';
+                localStorage.setItem('theme', 'dark');
+            }
+            if (stored === 'dark') {
+                root.classList.add('dark');
+            } else {
+                root.classList.remove('dark');
+            }
+        })();
+    </script>
+</head>
+
+<body class="bg-bg-light text-text-dark font-sans dark:bg-bg-dark dark:text-text-light overflow-x-hidden">
+    <!-- Navbar -->
+    <header class="fixed w-full backdrop-blur-md bg-bg-light/60 dark:bg-bg-dark/60 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+            <a href="#" class="text-2xl font-bold text-primary">SAMHUB</a>
+            <nav id="nav-links" class="hidden md:flex space-x-6 text-text-dark dark:text-text-light">
+                <a href="#services" class="hover:text-primary transition">Services</a>
+                <a href="#faq" class="hover:text-primary transition">FAQ</a>
+                <a href="#contact" class="hover:text-primary transition">Contact</a>
+            </nav>
+            <div class="flex items-center">
+                <button id="theme-toggle" class="mr-4 focus:outline-none">
+                    <svg id="icon-sun" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m0-13.314l1.414 1.414M16.95 16.95l1.414 1.414" />
+                    </svg>
+                    <svg id="icon-moon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+                    </svg>
+                </button>
+                <button id="menu-btn" class="md:hidden focus:outline-none">
+                    <svg id="menu-open-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="menu-close-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="md:hidden hidden bg-bg-light dark:bg-bg-dark">
+            <div class="flex flex-col space-y-2 p-6">
+                <a href="#services" class="hover:text-primary transition" onclick="toggleMenu()">Services</a>
+                <a href="#faq" class="hover:text-primary transition" onclick="toggleMenu()">FAQ</a>
+                <a href="#contact" class="hover:text-primary transition" onclick="toggleMenu()">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="absolute w-auto min-w-full min-h-full object-cover">
+            <source src="static/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-bg-light/70 dark:bg-black/70"></div>
+        <div class="relative text-center px-6" data-aos="zoom-in">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-text-dark dark:text-white">
+                We Architect Tomorrow's Innovations
+            </h1>
+            <p class="text-lg md:text-2xl mb-8 opacity-90 text-text-dark dark:text-gray-300">
+                From high-resolution enterprise-grade full-stack development to 3D printing.
+            </p>
+            <a href="#contact"
+                class="inline-block bg-primary hover:bg-accent text-black dark:text-black py-3 px-10 rounded-full font-semibold shadow-2xl transition">
+                Get Started
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats" class="py-16 bg-bg-light dark:bg-gray-900" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            <div>
+                <h3 class="text-4xl font-bold text-primary" data-count="250">75</h3>
+                <p class="mt-2 text-text-dark dark:text-gray-400">Projects Delivered</p>
+            </div>
+            <div>
+                <h3 class="text-4xl font-bold text-primary" data-count="150">32</h3>
+                <p class="mt-2 text-text-dark dark:text-gray-400">Global Clients</p>
+            </div>
+            <div>
+                <h3 class="text-4xl font-bold text-primary" data-count="98">99.9</h3>
+                <p class="mt-2 text-text-dark dark:text-gray-400">SLA Uptime (%)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 px-6 bg-bg-light dark:bg-bg-dark" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-4">Our Expertise</h2>
+            <p class="text-text-dark dark:text-gray-400">
+                Tailored solutions in web & mobile apps, backend architectures & 3D printing.
+            </p>
+        </div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition"
+                data-aos="flip-left" data-aos-delay="100">
+                <img src="https://www.svgrepo.com/show/1699/web-development.svg" alt="Web Dev"
+                    class="h-12 mb-4 mx-auto" />
+                <h3 class="text-xl font-semibold mb-2 text-text-dark dark:text-text-light">
+                    Web & API Development
+                </h3>
+                <p class="mb-4 text-gray-700 dark:text-gray-400">
+                    Responsive, SEO-optimized websites built for performance & scalability. Robust RESTful & GraphQL
+                    APIs.
+                </p>
+                <a href="#contact" class="text-primary font-medium hover:underline">Get A Quote →</a>
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition"
+                data-aos="flip-left" data-aos-delay="200">
+                <img src="https://www.svgrepo.com/show/19675/mobile-app-developing.svg" alt="Mobile Apps"
+                    class="h-12 mb-4 mx-auto" />
+                <h3 class="text-xl font-semibold mb-2 text-text-dark dark:text-text-light">
+                    Mobile Apps
+                </h3>
+                <p class="mb-4 text-gray-700 dark:text-gray-400">
+                    Flutter-based cross-platform apps with polished native performance.
+                </p>
+                <a href="#contact" class="text-primary font-medium hover:underline">Discuss →</a>
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition"
+                data-aos="flip-left">
+                <img src="https://www.svgrepo.com/show/45469/3d-printer.svg" alt="3D Printing"
+                    class="h-12 mb-4 mx-auto" />
+                <h3 class="text-xl font-semibold mb-2 text-text-dark dark:text-text-light">
+                    3D Printing
+                </h3>
+                <p class="mb-4 text-gray-700 dark:text-gray-400">
+                    High-precision prototypes & end-use parts using state-of-the-art printers.
+                </p>
+                <a href="#showcase" class="text-primary font-medium hover:underline">Explore Projects →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase -->
+    <!-- <section id="showcase" class="py-20 bg-bg-light dark:bg-gray-900" data-aos="fade-up">
+        <div class="max-w-5xl mx-auto text-center mb-8 px-6">
+            <h2 class="text-3xl font-bold text-primary mb-2">3D Printing Showcase</h2>
+            <p class="text-text-dark dark:text-gray-400">
+                Our top projects & demos, illustrating precision and creativity.
+            </p>
+        </div>
+        <div class="swiper-container max-w-4xl mx-auto px-6">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="w-full h-64 bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                        <img src="/api/placeholder/350/280" alt="Mechanical Gear Assembly"
+                            class="max-h-full object-contain" />
+                    </div>
+                    <div class="p-4 text-left">
+                        <h3 class="font-semibold text-lg mb-1 text-text-dark dark:text-text-light">Mechanical Gear
+                            Assembly</h3>
+                        <p class="text-gray-700 dark:text-gray-500 text-sm">High-precision gears printed & assembled.
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="w-full h-64 bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                        <img src="/api/placeholder/350/280" alt="Architectural Model" class="max-h-full object-contain" />
+                    </div>
+                    <div class="p-4 text-left">
+                        <h3 class="font-semibold text-lg mb-1 text-text-dark dark:text-text-light">Architectural Model
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-500 text-sm">Layered resin printing demonstration.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="w-full h-64 bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                        <img src="/api/placeholder/350/280" alt="Functional Prototype" class="max-h-full object-contain" />
+                    </div>
+                    <div class="p-4 text-left">
+                        <h3 class="font-semibold text-lg mb-1 text-text-dark dark:text-text-light">Functional Prototype
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-500 text-sm">Prototype with moving parts.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="w-full h-64 bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                        <img src="/api/placeholder/350/280" alt="Medical Model" class="max-h-full object-contain" />
+                    </div>
+                    <div class="p-4 text-left">
+                        <h3 class="font-semibold text-lg mb-1 text-text-dark dark:text-text-light">Medical Model</h3>
+                        <p class="text-gray-700 dark:text-gray-500 text-sm">Anatomical models for educational use.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next text-primary"></div>
+            <div class="swiper-button-prev text-primary"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <style>
+            .swiper-container {
+                width: 100%;
+                max-width: 800px;
+            }
+
+            .swiper-slide {
+                width: 320px;
+                margin-right: 20px;
+            }
+
+            @media (max-width: 768px) {
+                .swiper-slide {
+                    width: 280px;
+                }
+            }
+        </style>
+    </section> -->
+
+    <!-- Team -->
+    <!-- <section id="team" class="py-20 px-6 bg-bg-light dark:bg-bg-dark" data-aos="fade-up">
+        <div class="max-w-5xl mx-auto text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-2">Meet The Team</h2>
+            <p class="text-text-dark dark:text-gray-400">
+                Talented engineers, designers & strategists behind every project.
+            </p>
+        </div>
+        <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition"
+                data-aos="zoom-in">
+                <img src="avatars/alex.jpg" alt="Alex" class="w-full h-56 object-cover" />
+                <div class="p-4 text-center">
+                    <h4 class="font-semibold text-text-dark dark:text-text-light">Alex Johnson</h4>
+                    <span class="text-gray-700 dark:text-gray-500 text-sm">Lead Engineer</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 px-6 bg-bg-light dark:bg-gray-900" data-aos="fade-up">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-primary mb-6 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        What materials do you offer for 3D printing?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We offer PLA, ABS, Resin, Nylon, PETG, and specialty composites tailored to diverse use cases.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        Which frontend frameworks do you specialize in?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We build scalable interfaces with React, Vue.js, and Angular, focusing on performance and
+                        maintainability.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        Do you support GraphQL or only RESTful APIs?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We design both RESTful and GraphQL endpoints, depending on your data access patterns and client
+                        needs.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        How do you ensure application security?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We implement OWASP best practices, JWT/OAuth2 authentication, input validation, and regular
+                        security audits.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        What database technologies do you use?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We work with SQL (PostgreSQL, MySQL) and NoSQL (MongoDB, Redis) solutions based on project
+                        requirements.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        Can you integrate third-party services (e.g., payments, analytics)?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        Yes—we seamlessly integrate Stripe, PayPal, ToyyibPay, Google Analytics, and other APIs as
+                        needed.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        How do you handle responsive design?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We use mobile-first CSS strategies with Tailwind, Flexbox, and CSS Grid to ensure seamless
+                        experiences.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        What is your typical project timeline?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        Most mid-sized projects complete within 3–6 months. Timelines vary based on scope and
+                        complexity.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        How do you manage version control?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We use Git with GitHub or GitLab, following feature-branch workflows and pull request reviews.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        Do you offer maintenance and support?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        Yes—we provide post-launch monitoring, updates, and dedicated support packages.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        How do you deploy applications?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We deploy on AWS, GCP, or Azure using Docker, Kubernetes, and CI/CD pipelines for automated
+                        releases.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        Can you scale my application as traffic grows?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We architect for horizontal scaling, load balancing, and auto-scaling groups to handle spikes.
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg" x-data="{ open: false }">
+                    <button @click="open=!open"
+                        class="w-full px-4 py-3 text-left font-medium text-text-dark dark:text-text-light focus:outline-none">
+                        What are your pricing models?
+                    </button>
+                    <div x-show="open" class="px-4 py-2 text-gray-700 dark:text-gray-400">
+                        We offer fixed-price, time-and-materials, and retainer models—flexible to your budget and needs.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Newsletter -->
+    <section id="contact" class="py-20 px-6 bg-bg-light dark:bg-bg-dark" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                <h2 class="text-2xl font-bold text-primary mb-4">Get In Touch</h2>
+                <form id="contactForm" class="space-y-6">
+                    <input type="text" name="name" placeholder="Your Name" required
+                        class="w-full bg-gray-100 dark:bg-gray-700 p-3 rounded-lg focus:ring-2 focus:ring-primary" />
+                    <input type="email" name="email" placeholder="Your Email" required
+                        class="w-full bg-gray-100 dark:bg-gray-700 p-3 rounded-lg focus:ring-2 focus:ring-primary" />
+                    <textarea name="message" rows="4" placeholder="Message..." required
+                        class="w-full bg-gray-100 dark:bg-gray-700 p-3 rounded-lg focus:ring-2 focus:ring-primary"></textarea>
+                    <button type="submit"
+                        class="w-full bg-primary text-black py-3 rounded-full font-semibold hover:bg-accent transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg text-center">
+                    <h3 class="text-xl font-semibold mb-2">Subscribe to our Newsletter</h3>
+                    <form class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Email address" required
+                            class="flex-1 bg-gray-100 dark:bg-gray-700 p-3 rounded-lg focus:ring-2 focus:ring-primary" />
+                        <button type="submit"
+                            class="bg-primary text-black px-6 py-3 rounded-full font-medium hover:bg-accent transition">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+                <div class="w-full rounded-2xl overflow-hidden shadow-lg">
+                    <iframe class="w-full h-48"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63735.61359390473!2d101.38664979638591!3d3.231081066428443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc599d582e1cfb%3A0x3708afce71ce5245!2sPuncak%20Alam%2C%20Selangor!5e0!3m2!1sen!2smy!4v1745589333439!5m2!1sen!2smy"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = this.name.value.trim();
+                const email = this.email.value.trim();
+                const message = this.message.value.trim();
+
+                const textParam = encodeURIComponent(
+                    `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+                );
+
+                const telegramUrl = `https://t.me/sam_sfx?text=${textParam}`;
+                window.open(telegramUrl, '_blank');
+            });
+        </script>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-r from-primary to-accent text-black dark:text-black text-center"
+        data-aos="zoom-in">
+        <h2 class="text-3xl font-bold mb-4">Ready to transform your vision?</h2>
+        <a href="#contact"
+            class="bg-black text-primary px-8 py-3 rounded-full font-semibold hover:opacity-90 transition">Let's
+            Talk</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center bg-bg-light dark:bg-bg-dark" data-aos="fade-up">
+        <p class="mb-4 text-text-dark dark:text-gray-500">© 2025 SAMHUB. All rights reserved.</p>
+        <div class="space-x-6">
+            <a href="#" class="hover:text-primary text-text-dark dark:text-gray-500">Privacy Policy</a>
+            <a href="#" class="hover:text-primary text-text-dark dark:text-gray-500">Terms of Service</a>
+            <a href="#" class="hover:text-primary text-text-dark dark:text-gray-500">Sitemap</a>
+        </div>
+    </footer>
+
+    <!-- Floating Chat -->
+    <a href="https://t.me/sam_sfx" target="_blank"
+        class="fixed bottom-6 right-6 bg-[#0088cc] p-4 rounded-full shadow-lg hover:scale-110 transition">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 4.01L2 11.001 9 13l2 7 3-8 6.5 3L22 4.01z" />
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.7/dist/countUp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('preloader').style.display = 'none';
+            const sun = document.getElementById('icon-sun'),
+                moon = document.getElementById('icon-moon');
+            if (document.documentElement.classList.contains('dark')) {
+                sun.classList.remove('hidden');
+                moon.classList.add('hidden');
+            } else {
+                sun.classList.add('hidden');
+                moon.classList.remove('hidden');
+            }
+        });
+
+        document.getElementById('menu-btn').onclick = () =>
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+
+        document.getElementById('theme-toggle').onclick = () => {
+            const root = document.documentElement;
+            const isDark = root.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.getElementById('icon-sun').classList.toggle('hidden');
+            document.getElementById('icon-moon').classList.toggle('hidden');
+        };
+
+        new Swiper('.swiper-container', {
+            loop: true,
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            pagination: { el: '.swiper-pagination', clickable: true }
+        });
+
+        AOS.init({ duration: 800, once: true });
+
+        document.querySelectorAll('[data-count]').forEach(el => {
+            new CountUp(el, +el.dataset.count, { duration: 2 }).start();
+        });
+
+    </script>
+</body>
+
+</html>
